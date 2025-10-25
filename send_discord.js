@@ -1,7 +1,10 @@
 // send_discord.js
 // Node 18+
-// Simplified embed: always "New Vouch Received", just says "has submitted a vouch!",
-// only 4–5 stars, and keeps your user IDs + thumbnails.
+// Behavior:
+// - Trigger hourly via GitHub Actions (set cron to '0 * * * *').
+// - ~50% chance to skip each run so it sends on average once every 1-2 hours.
+// - Product randomized between: Ingame Items, Robux, Limiteds, Selling.
+// - Title fixed, description fixed, only 4-5 stars.
 
 const webhookUrl = process.env.DISCOHOOK_URL;
 if (!webhookUrl) {
@@ -54,12 +57,22 @@ const reviews = [
 
 const stars = ["⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"]; // only 4–5 stars
 
+const products = ["Ingame Items", "Robux", "Limiteds", "Selling"];
+
 const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+// === Random skip logic: ~50% chance to skip this run ===
+const SKIP_PROBABILITY = 0.5; // 0.5 means ~50% of runs will skip
+if (Math.random() < SKIP_PROBABILITY) {
+  console.log("⏩ Skipping this run (simulating 1–2 hour spacing).");
+  process.exit(0); // exit successfully so GitHub marks the run as done
+}
 
 function buildPayload() {
   const user = pick(userMapping);
   const review = pick(reviews);
   const star = pick(stars);
+  const product = pick(products);
 
   return {
     content: null,
@@ -69,7 +82,7 @@ function buildPayload() {
         description: `<@${user.id}> has submitted a vouch!`,
         color: 16745728,
         fields: [
-          { name: "Product", value: "Ingame Items" },
+          { name: "Product", value: product },
           { name: "Review", value: review },
           { name: "Stars", value: star }
         ],
