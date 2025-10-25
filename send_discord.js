@@ -39,8 +39,16 @@ const userMapping = [
 const reviews = [
   "Very fast and legit!",
   "Smooth transaction, tysm!",
-  "Trusted MM 💯",
-  "Got my items instantly 🔥",
+  "W Middleman",
+  "Im only gonna use this mm from now on",
+  "great service",
+  "received my items in 20 minutes",
+  "thanks you so much for being legit",
+  "couldnt be better",
+  "legittt",
+  "w legit mm",
+  "Trusted MM",
+  "Got my items fast",
   "Will trade again soon!"
 ];
 
