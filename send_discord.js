@@ -38,6 +38,22 @@ const userMapping = [
   { id: "1418318289406398647", avatar: "https://cdn.discordapp.com/avatars/1418318289406398647/3601f0edf1a99499fc30bafc26030b31.png?size=1024" },
   { id: "1418605664535842977", avatar: "https://cdn.discordapp.com/avatars/1418605664535842977/7d14de56424e53e7bfeca0c1410770a9.png?size=1024" },
   { id: "1385664520889958590", avatar: "https://cdn.discordapp.com/avatars/1385664520889958590/833ee367c59d5b49c158e39044b5da4e.png?size=1024" },
+  { id: "1421458094575058954", avatar: "https://cdn.discordapp.com/embed/avatars/0.png" },
+  { id: "1397454862433779722", avatar: "https://cdn.discordapp.com/avatars/1397454862433779722/48bf1e41abb732675609a19277e77d20.png?size=1024" },
+  { id: "1350256101068902430", avatar: "https://cdn.discordapp.com/avatars/1350256101068902430/5bb661307cb2839b355fdc133c1e9db4.png?size=1024" },
+  { id: "1385678142596841563", avatar: "https://cdn.discordapp.com/avatars/1385678142596841563/eca7982db204598724d3ce4d17011d6f.png?size=1024" },
+  { id: "1385851772525871136", avatar: "https://cdn.discordapp.com/avatars/1385851772525871136/acdbd0987a3731115656a5573d58fa17.png?size=1024" },
+  { id: "1349352459557928970", avatar: "https://cdn.discordapp.com/avatars/1349352459557928970/130d4b8b7ba7d7445614889a865532b6.png?size=1024" },
+  { id: "1296170440905199721", avatar: "https://cdn.discordapp.com/avatars/1296170440905199721/ab810cc666d2806851fe6459572cb097.png?size=1024" },
+  { id: "1418450248891764917", avatar: "https://cdn.discordapp.com/avatars/1418450248891764917/9593bef00c1c44ea03ca90e2a7e9e72e.png?size=1024" },
+  { id: "1349812252970324069", avatar: "https://cdn.discordapp.com/avatars/1349812252970324069/704a3ded21c150814db900ec04573c10.png?size=1024" },
+  { id: "1420081458521051229", avatar: "https://cdn.discordapp.com/avatars/1420081458521051229/11920f042d44912190a55ea554dd3f07.png?size=1024" },
+  { id: "1417892799902384389", avatar: "https://cdn.discordapp.com/avatars/1417892799902384389/b455287108004e8067bc5330597fc426.png?size=1024" },
+  { id: "1350277833485979658", avatar: "https://cdn.discordapp.com/avatars/1350277833485979658/9d7283c4d8bfe6eed72aa2173a69a279.png?size=1024" },
+  { id: "1397298117006721135", avatar: "https://cdn.discordapp.com/avatars/1397298117006721135/212a124225b829f50dd545211c939642.png?size=1024" },
+  { id: "1387337996319199233", avatar: "https://cdn.discordapp.com/avatars/1387337996319199233/784a76372efa345b32efd731f8bb1906.png?size=1024" },
+  { id: "1418450935822155809", avatar: "https://cdn.discordapp.com/avatars/1418450935822155809/3177230cccef97751670e1f8b25b69c8.png?size=1024" },
+  { id: "1422239699405111360", avatar: "https://cdn.discordapp.com/avatars/1422239699405111360/df8c42f009c53b8047ac575a81fd6706.png?size=1024" },
   { id: "1418608715493277696", avatar: "https://cdn.discordapp.com/avatars/1418608715493277696/a9d1b3cb40f5ef07152d5b8045fee36f.png?size=1024" }
 ];
 // =========================================================
@@ -53,8 +69,18 @@ const reviews = [
   "couldnt be better",
   "legittt",
   "w legit mm",
+  "mmed my stuff",
+  "w server gng",
+  "way too underrated",
+  "legit asf",
+  "best mm",
+  "W",
   "Trusted MM",
+  "I thought this wasnt legit at first",
+  "way too good",
   "Got my items fast",
+  "best mm ever",
+  "underrated ash",
   "Will trade again soon!"
 ];
 
