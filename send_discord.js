@@ -1,10 +1,11 @@
 // send_discord.js
 // Node 18+
-// Behavior:
-// - Trigger hourly via GitHub Actions (set cron to '0 * * * *').
-// - ~50% chance to skip each run so it sends on average once every 1-2 hours.
-// - Product randomized between: Ingame Items, Robux, Limiteds, Selling.
-// - Title fixed, description fixed, only 4-5 stars.
+// Sends a vouch message every 43 minutes (as scheduled by GitHub Actions).
+// - Title: "New Vouch Received"
+// - Description: "<@USER> has submitted a vouch!"
+// - Random product (Ingame Items, Robux, Limiteds, Selling)
+// - Only 4–5 stars
+// - Uses your provided user IDs and profile pictures.
 
 const webhookUrl = process.env.DISCOHOOK_URL;
 if (!webhookUrl) {
@@ -12,9 +13,11 @@ if (!webhookUrl) {
   process.exit(1);
 }
 
-function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+function rand(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
-// ==== USER ID -> AVATAR MAPPING (your provided list) ====
+// ==== USER ID -> AVATAR MAPPING ====
 const userMapping = [
   { id: "1358906555898269817", avatar: "https://cdn.discordapp.com/avatars/1358906555898269817/bfe0e71dad6f9c6b4f86f9ef2eba679c.png?size=1024" },
   { id: "1412460057257443341", avatar: "https://cdn.discordapp.com/avatars/1412460057257443341/e0a40bcc3b8bc7d6b19c8e145427fe15.png?size=1024" },
@@ -55,24 +58,14 @@ const reviews = [
   "Will trade again soon!"
 ];
 
-const stars = ["⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"]; // only 4–5 stars
-
+const stars = ["⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"];
 const products = ["Ingame Items", "Robux", "Limiteds", "Selling"];
 
-const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
-
-// === Random skip logic: ~50% chance to skip this run ===
-const SKIP_PROBABILITY = 0.5; // 0.5 means ~50% of runs will skip
-if (Math.random() < SKIP_PROBABILITY) {
-  console.log("⏩ Skipping this run (simulating 1–2 hour spacing).");
-  process.exit(0); // exit successfully so GitHub marks the run as done
-}
-
 function buildPayload() {
-  const user = pick(userMapping);
-  const review = pick(reviews);
-  const star = pick(stars);
-  const product = pick(products);
+  const user = rand(userMapping);
+  const review = rand(reviews);
+  const star = rand(stars);
+  const product = rand(products);
 
   return {
     content: null,
@@ -92,7 +85,8 @@ function buildPayload() {
       }
     ],
     username: "Crosstrade Central | Vouches",
-    avatar_url: "https://cdn.discordapp.com/attachments/1335710092418482289/1428518124860473435/ctc.png",
+    avatar_url:
+      "https://cdn.discordapp.com/attachments/1335710092418482289/1428518124860473435/ctc.png",
     attachments: []
   };
 }
