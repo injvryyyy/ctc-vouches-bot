@@ -1,0 +1,19 @@
+name: Auto Discohook Vouches
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'  # every 2 hours; change to '0 * * * *' for hourly
+  workflow_dispatch: {}     # manual run button
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Run Discord webhook sender
+        env:
+          DISCOHOOK_URL: ${{ secrets.DISCOHOOK_URL }}
+        run: node send_discord.js
