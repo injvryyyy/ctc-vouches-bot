@@ -1,5 +1,7 @@
 // send_discord.js
-// Node 18+ (fetch built in). Use DISCOHOOK_URL env var.
+// Node 18+
+// Simplified embed: always "New Vouch Received", just says "has submitted a vouch!",
+// only 4–5 stars, and keeps your user IDs + thumbnails.
 
 const webhookUrl = process.env.DISCOHOOK_URL;
 if (!webhookUrl) {
@@ -8,9 +10,8 @@ if (!webhookUrl) {
 }
 
 function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-function randInt(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
 
-// ==== USER ID -> AVATAR MAPPING (paste yours here) ====
+// ==== USER ID -> AVATAR MAPPING (your provided list) ====
 const userMapping = [
   { id: "1358906555898269817", avatar: "https://cdn.discordapp.com/avatars/1358906555898269817/bfe0e71dad6f9c6b4f86f9ef2eba679c.png?size=1024" },
   { id: "1412460057257443341", avatar: "https://cdn.discordapp.com/avatars/1412460057257443341/e0a40bcc3b8bc7d6b19c8e145427fe15.png?size=1024" },
@@ -33,49 +34,34 @@ const userMapping = [
   { id: "1385664520889958590", avatar: "https://cdn.discordapp.com/avatars/1385664520889958590/833ee367c59d5b49c158e39044b5da4e.png?size=1024" },
   { id: "1418608715493277696", avatar: "https://cdn.discordapp.com/avatars/1418608715493277696/a9d1b3cb40f5ef07152d5b8045fee36f.png?size=1024" }
 ];
-// =============================================================
-
-const products = [
-  "Robux", "Limited Item", "Roblox Account", "UGC Item",
-  "Gamepass", "Developer Product", "In-game Item (MM Item)", "VIP Server"
-];
+// =========================================================
 
 const reviews = [
-  "Smooth middleman, got my Robux instantly.",
-  "Trusted service — legit seller and fast MM.",
-  "Paid and received the limited item without issues.",
-  "Account transfer was clean, thanks!",
-  "Perfect — verified and quick, would trade again.",
-  "Seller tried to bamboozle but MM handled it ✅",
-  "UGC delivered, quality as described.",
-  "Gamepass purchase went through, thanks MM!"
+  "Very fast and legit!",
+  "Smooth transaction, tysm!",
+  "Trusted MM 💯",
+  "Got my items instantly 🔥",
+  "Will trade again soon!"
 ];
 
-const stars = ["⭐⭐⭐⭐⭐","⭐⭐⭐⭐","⭐⭐⭐"];
+const stars = ["⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"]; // only 4–5 stars
 
-function pickRandomUser() {
-  return rand(userMapping);
-}
+const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 function buildPayload() {
-  const user = pickRandomUser();
-  const product = rand(products);
-  const review = rand(reviews);
-  const star = rand(stars);
-  const game = rand([
-    "Adopt Me!", "Jailbreak", "Murder Mystery 2", "Bloxburg",
-    "Brookhaven", "Arsenal", "Pet Simulator X", "Royale High"
-  ]);
+  const user = pick(userMapping);
+  const review = pick(reviews);
+  const star = pick(stars);
 
   return {
     content: null,
     embeds: [
       {
-        title: `#${randInt(1,999)} New Vouch Received`,
-        description: `<@${user.id}> has submitted a vouch for **${product}** in *${game}*!`,
+        title: "New Vouch Received",
+        description: `<@${user.id}> has submitted a vouch!`,
         color: 16745728,
         fields: [
-          { name: "Product", value: product },
+          { name: "Product", value: "Ingame Items" },
           { name: "Review", value: review },
           { name: "Stars", value: star }
         ],
@@ -91,23 +77,17 @@ function buildPayload() {
 }
 
 async function send() {
-  try {
-    const payload = buildPayload();
-    const res = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-    if (!res.ok) {
-      const text = await res.text();
-      console.error("Failed to send webhook:", res.status, text);
-      process.exit(2);
-    }
-    console.log("✅ Sent webhook. Mentioned:", payload.embeds[0].description);
-  } catch (err) {
-    console.error("Error sending webhook:", err);
-    process.exit(3);
+  const payload = buildPayload();
+  const res = await fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  if (!res.ok) {
+    console.error("Webhook failed:", res.status, await res.text());
+    process.exit(1);
   }
+  console.log("✅ Sent:", payload.embeds[0].description);
 }
 
 send();
