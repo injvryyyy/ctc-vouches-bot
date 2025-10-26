@@ -54,6 +54,18 @@ const userMapping = [
   { id: "1387337996319199233", avatar: "https://cdn.discordapp.com/avatars/1387337996319199233/784a76372efa345b32efd731f8bb1906.png?size=1024" },
   { id: "1418450935822155809", avatar: "https://cdn.discordapp.com/avatars/1418450935822155809/3177230cccef97751670e1f8b25b69c8.png?size=1024" },
   { id: "1422239699405111360", avatar: "https://cdn.discordapp.com/avatars/1422239699405111360/df8c42f009c53b8047ac575a81fd6706.png?size=1024" },
+  { id: "1412347517160390707", avatar: "https://cdn.discordapp.com/avatars/1412347517160390707/2cab3c9c9fac531c06cbe51b42274ac2.png?size=1024" },
+  { id: "1412452350764777472", avatar: "https://cdn.discordapp.com/avatars/1412452350764777472/a8a630545cc2e80a11d3a3bed2644856.png?size=1024" },
+  { id: "1388473807332970569", avatar: "https://cdn.discordapp.com/avatars/1388473807332970569/de6441d0cf689b0eaa33ebe933706384.png?size=1024" },
+  { id: "1368663470589083709", avatar: "https://cdn.discordapp.com/avatars/1368663470589083709/361dee1ae77771df2819aa2384195048.png?size=1024" },
+  { id: "1420684878076186729", avatar: "https://cdn.discordapp.com/avatars/1420684878076186729/8cfd32be73f1d500106683a188b16bf6.png?size=1024" },
+  { id: "1397596258033598587", avatar: "https://cdn.discordapp.com/avatars/1397596258033598587/68c04ca0a83e1578689c7231eb81f459.png?size=1024" },
+  { id: "1421504951636725781", avatar: "https://cdn.discordapp.com/avatars/1421504951636725781/5bd7edd04a3008976e3ee60263b5d230.png?size=1024" },
+  { id: "1423494068695990372", avatar: "https://cdn.discordapp.com/avatars/1423494068695990372/ddc8bc3b67392d40faa165dd1d963dec.png?size=1024" },
+  { id: "1385285648180838440", avatar: "https://cdn.discordapp.com/avatars/1385285648180838440/1d7f32a8ae96d482f7fef2c76c80a1b4.png?size=1024" },
+  { id: "1395597810891751434", avatar: "https://cdn.discordapp.com/avatars/1395597810891751434/5abf11495269d586f4288fcf7cf48794.png?size=1024" },
+  { id: "1387442467317743687", avatar: "https://cdn.discordapp.com/avatars/1387442467317743687/f4725285b91c7041235d6171fde2252e.png?size=1024" },
+  { id: "1423630735830417480", avatar: "https://cdn.discordapp.com/avatars/1423630735830417480/5509fb958b703ffdc05eb370302c806b.png?size=1024" },
   { id: "1418608715493277696", avatar: "https://cdn.discordapp.com/avatars/1418608715493277696/a9d1b3cb40f5ef07152d5b8045fee36f.png?size=1024" }
 ];
 // =========================================================
