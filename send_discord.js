@@ -72,32 +72,34 @@ const userMapping = [
 
 const reviews = [
   "Very fast and legit!",
-  "Smooth transaction, tysm!",
-  "W Middleman",
-  "Im only gonna use this mm from now on",
+  "what can I say, just too good",
+  "W Seller bro",
+  "Im only gonna use this server from now on",
   "great service",
-  "received my items in 20 minutes",
+  "received my stuff in 20 minutes",
   "thanks you so much for being legit",
   "couldnt be better",
   "legittt",
-  "w legit mm",
-  "mmed my stuff",
+  "w legit seller",
+  "got my stuff",
   "w server gng",
   "way too underrated",
   "legit asf",
-  "best mm",
+  "best Seller",
   "W",
-  "Trusted MM",
+  "Trusted",
+  "trusted asf",
   "I thought this wasnt legit at first",
   "way too good",
-  "Got my items fast",
-  "best mm ever",
+  "Got my stuff fast",
+  "best seller ever",
   "underrated ash",
-  "Will trade again soon!"
+  "best tools frfr",
+  "Will buy again soon"
 ];
 
 const stars = ["⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"];
-const products = ["Ingame Items", "Robux", "Limiteds", "Selling"];
+const products = ["Ingame Items", "Cheap Currency", "Tool"];
 
 function buildPayload() {
   const user = rand(userMapping);
@@ -111,20 +113,20 @@ function buildPayload() {
       {
         title: "New Vouch Received",
         description: `<@${user.id}> has submitted a vouch!`,
-        color: 16745728,
+        color: 4294901760,
         fields: [
           { name: "Product", value: product },
           { name: "Review", value: review },
           { name: "Stars", value: star }
         ],
-        footer: { text: "discord.gg/ctcentral" },
+        footer: { text: "discord.gg/algorithm" },
         timestamp: new Date().toISOString(),
         thumbnail: { url: user.avatar }
       }
     ],
-    username: "Crosstrade Central | Vouches",
+    username: "Algorithm Tools | Vouches",
     avatar_url:
-      "https://cdn.discordapp.com/attachments/1335710092418482289/1428518124860473435/ctc.png",
+      "https://media.discordapp.net/attachments/1428520457191161933/1434242524456816700/standard_2.gif?ex=69079df0&is=69064c70&hm=3abf650eadc563a648238494956236846480a52e5e7b961d1f5887d10ec49a63&=",
     attachments: []
   };
 }
