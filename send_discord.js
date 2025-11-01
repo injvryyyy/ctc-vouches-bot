@@ -113,7 +113,7 @@ function buildPayload() {
       {
         title: "New Vouch Received",
         description: `<@${user.id}> has submitted a vouch!`,
-        color: 4294901760,
+        color: 16711680,
         fields: [
           { name: "Product", value: product },
           { name: "Review", value: review },
