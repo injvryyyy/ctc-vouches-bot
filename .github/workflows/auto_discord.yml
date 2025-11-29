@@ -1,9 +1,9 @@
 name: Auto Discohook Vouches
 
-on:
-  schedule:
-    - cron: '*/42 * * * *'  # ⏰ runs every 43 minutes
-  workflow_dispatch: {}      # allows manual trigger from the Actions tab
+#on:
+#  schedule:
+#    - cron: '*/42 * * * *'  # ⏰ runs every 43 minutes
+#  workflow_dispatch: {}      # allows manual trigger from the Actions tab
 
 jobs:
   send:
